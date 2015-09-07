@@ -20,6 +20,7 @@
   "author": "wacky6",
   "license": "MIT",
   "bin": {
-    "drcom-cli": "./index.js"
+    "drcom-cli": "./index.js",
+    "drcom-daemon": "./drcom-daemon.js"
   }
 }

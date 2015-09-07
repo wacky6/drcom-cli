@@ -109,7 +109,7 @@ class drCom {
 		form["upass"]  = passwd
 		form["0MKKey"] = ''
 		POST(this.address, '/', form, function(e, d){
-			require('fs').writeFileSync('/tmp/post-login.txt', d)
+			// DEBUG/DEV: require('fs').writeFileSync('/tmp/post-login.txt', d)
 			var reMsg = /Msg=([0-9]+)/
 			// capture msg Code
 			var code = reMsg.exec(d.toString())
