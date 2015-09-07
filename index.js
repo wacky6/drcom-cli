@@ -25,7 +25,7 @@ if (argv.length < 2) { process.stderr.write(usage); result('ERROR'); return }
 
 // parse command line
 var server = argv[0], cmd = argv[1]
-var drcom  = new (require('./drcom'))(server)
+var drcom  = new (require('./drCom'))(server)
 
 process.on('uncaughtException', function(e){
 	process.stderr.write(e.stack)
