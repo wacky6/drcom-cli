@@ -1,13 +1,14 @@
 'use strict'
 
 /* Account File, per line: `username password` */
-let ACCOUNT = './account.conf'
+let ACCOUNT = '/etc/drcom-account.conf'
 /* Server hostname / address */
 let SERVER  = '192.168.168.168'
 
 
 var fs    = require('fs')
 var join  = require('path').join
+var resolve = require('path').resolve
 var spawnSync = require('child_process').spawnSync
 
 function timeStr() {
@@ -16,11 +17,12 @@ function timeStr() {
 
 var accounts
 try {
-	accounts = fs.readFileSync( join(__dirname, './account.conf'), {encoding:'utf-8'})
+	var accountsPath = resolve(__dirname, ACCOUNT)
+	accounts = fs.readFileSync(accountsPath, {encoding:'utf-8'})
 	.split(/\n|\r|\n\r/)
 	.map(function(s){ return {user: s.split(/\s/)[0], pass: s.split(/\s/)[1] } })
 }catch(e){
-	console.log("Fail: can't read account information")
+	console.log("Fail: can't read account information, "+accountsPath)
 	process.exit(1)
 }
 console.log('loaded accounts = '+accounts.length)
