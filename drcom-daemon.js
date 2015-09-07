@@ -20,6 +20,7 @@ try {
 	var accountsPath = resolve(__dirname, ACCOUNT)
 	accounts = fs.readFileSync(accountsPath, {encoding:'utf-8'})
 	.split(/\n|\r|\n\r/)
+	.filter(function(s){ return s.search(/\S/)!=-1 })
 	.map(function(s){ return {user: s.split(/\s/)[0], pass: s.split(/\s/)[1] } })
 }catch(e){
 	console.log("Fail: can't read account information, "+accountsPath)
