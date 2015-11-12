@@ -1,6 +1,6 @@
 {
   "name": "drcom-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "drcom wrapper",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
     "url": "https://github.com/wacky6/drcom-cli.git"
   },
   "keywords": [
-    "drcom", "njupt"
+    "drcom",
+    "njupt"
   ],
   "author": "wacky6",
   "license": "MIT",
